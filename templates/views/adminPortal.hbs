@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    
+    <link rel="stylesheet" href="/css/admin-portal.css" />
+    <title>Bloodlink Admin.</title>
+  </head>
+  <body>
+    <div class="admin-panel clearfix">
+      <div class="slidebar">
+        <div class="logo">
+          <img width="100"    src="/img/favicon.svg" alt="" srcset="">
+        </div>
+        <ul>
+          <li><a href="#dashboard" id="targeted">dashboard</a></li>
+          <li><a href="#posts">unverified users</a></li>
+          <li><a href="#media">unverified campaigns</a></li>
+          {{!-- <li><a href="#pages">complete</a></li>
+          <li><a href="#links">ended</a></li> --}}
+
+        </ul>
+      </div>
+      <div class="main">
+        <ul class="topbar clearfix">
+          <li><strong>Admin: </strong>{{admin}}</li>         
+          <li><a href="http://127.0.0.1:3000/admin/logout" onclick="return confirm('Do you want to logout?')"><i class="fas fa-sign-out-alt"></i></a></li>
+
+        </ul>
+        <div class="mainContent clearfix">
+          <div id="dashboard">
+            <h2 class="header"><span class="icon"></span>Dashboard</h2>
+            {{!-- <div class="statistics-container"> --}}
+              <div class="campaign-statistics">
+                <span class="dashbox-title">Active Donor Count</span>
+                <p class="make-flex-i"><span class="dashbox-heads">A  -  (Positive)</span> <span class="dashbox-data-i total-ap">0</span></p>
+                <p class="make-flex-i"><span class="dashbox-heads">B  -  (Positive)</span> <span class="dashbox-data-i total-bp">0</span></p>
+                <p class="make-flex-i"><span class="dashbox-heads">AB -  (Positive)</span> <span class="dashbox-data-i total-abp">0</span></p>
+                <p class="make-flex-i"><span class="dashbox-heads">O  -  (Positive)</span> <span class="dashbox-data-i total-op">0</span></p>
+                <p class="make-flex-i"><span class="dashbox-heads">A  -  (Negative)</span> <span class="dashbox-data-i total-an">0</span></p>
+                <p class="make-flex-i"><span class="dashbox-heads">B  -  (Negative)</span> <span class="dashbox-data-i total-bn">0</span></p>
+                <p class="make-flex-i"><span class="dashbox-heads">AB -  (Negative)</span> <span class="dashbox-data-i total-abn">0</span></p>
+                <p class="make-flex-i"><span class="dashbox-heads">O  -  (Negative)</span> <span class="dashbox-data-i total-on">0</span></p>
+
+              </div>
+              <div class="revenue-statistics">
+                <span class="dashbox-title">All Statistics</span>
+                <p class="make-flex"><span class="dashbox-heads">Total Users</span> <span class="dashbox-data total-raised">0</span></p>
+                <p class="make-flex"><span class="dashbox-heads">Total Campaigns</span> <span class="dashbox-data total-np">0</span></p>
+                <p class="make-flex"><span class="dashbox-heads">Total Requests</span> <span class="dashbox-data total-ind">0</span></p>
+                <p class="make-flex"><span class="dashbox-heads">Successful Requests</span> <span class="dashbox-data total-20">0</span></p>
+                <p class="make-flex"><span class="dashbox-heads">Total Donations</span> <span class="dashbox-data total-withdraw">Rs 0.00</span></p>
+
+              </div>
+              <div class="todays-statistics">
+                <span class="dashbox-title">Today's Statistics</span>
+                <p class="make-flex"><span class="dashbox-heads">New Users</span> <span class="dashbox-data td-cmp">0</span></p>
+                <p class="make-flex"><span class="dashbox-heads">New Campaigns</span> <span class="dashbox-data td-raised">0</span></p>
+                <p class="make-flex"><span class="dashbox-heads">New Requests</span> <span class="dashbox-data td-ind">0</span></p>
+                <p class="make-flex"><span class="dashbox-heads">Successful Requests</span> <span class="dashbox-data td-20">0</span></p>
+                <p class="make-flex"><span class="dashbox-heads">Donations</span> <span class="dashbox-data td-withdraw">Rs 0.00</span></p>
+
+
+              </div>
+
+              <aside class="statement-container">
+                <span class="dashbox-title">Recent Activities</span>
+                <br>
+                Loading....
+              </aside>
+
+              <aside class="withdrawl-container">
+                <span class="dashbox-title">Donations</span>
+                <br>
+                <br>
+                Loading....
+                  {{!-- --------GENERATED DYNAMICALLY----------}}
+                Loading....
+              </aside>
+
+
+
+
+              
+            {{!-- </div>   --}}
+          </div>
+          <div id="posts">
+            <h2 class="header">Unverified Users</h2>
+            <div class="unverified-container">
+              <aside class="campaign-list-unverified">
+                <article class="campaign-container-uv">
+                  <h3 class="campaign-title" >----------</h3>
+                  <div class="campaign-info"><div class="campaign-status">-------</div><div class="campaign-type">-------</div></div>
+                  <div class="campaign-created">----</div>
+                  
+                </article>
+              </aside>
+              <aside class="unverified-campaign-info">
+                Select a User.
+              </aside>
+            </div>
+          </div>
+          <div id="media">
+            <h2 class="header">Unverified Campaings</h2>
+            <div class="funding-container">
+              <aside class="campaign-list-funding">
+                <article class="campaign-container-fu">
+                  <h3 class="campaign-title" >----------</h3>
+                  <div class="campaign-info"><div class="campaign-status">-------</div><div class="campaign-type">-------</div></div>
+                  <div class="campaign-created">----</div>
+                  
+                </article>
+              </aside>
+              <aside class="funding-campaign-info">
+                Select a Campaign.
+              </aside>
+            </div>
+          </div>
+          <div id="pages">
+            <h2 class="header">Complete</h2>
+            <div class="complete-container">
+              <aside class="campaign-list-complete">
+                <article class="campaign-container-co">
+                  <h3 class="campaign-title" >----------</h3>
+                  <div class="campaign-info"><div class="campaign-status">-------</div><div class="campaign-type">-------</div></div>
+                  <div class="campaign-created">----</div>
+                  
+                </article>
+              </aside>
+              <div class="complete-campaign-info">
+                Select a Campaign.
+              </div>
+            </div>
+          </div>
+          <div id="links">
+            <h2 class="header">Ended</h2>
+            <div class="ended-container">
+              <aside class="campaign-list-ended">
+                <article class="campaign-container-en">
+                  <h3 class="campaign-title" >----------</h3>
+                  <div class="campaign-info"><div class="campaign-status">-------</div><div class="campaign-type">-------</div></div>
+                  <div class="campaign-created">----</div>
+                  
+                </article>
+              </aside>
+              <div class="ended-campaign-info">
+                Select a Campaign.
+              </div>
+            </div>
+          </div>
+         
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js" integrity="sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="/js/adminPortal.js"></script>
+  </body>
+</html>
