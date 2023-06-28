@@ -20,8 +20,8 @@ const createSendToken = (user, statuscode, res) => {
 
     res.cookie("jwtToken", token, cookieOptions);
 
-    console.log("----------token-----------");
-    console.log(token);
+    // console.log("----------token-----------");
+    // console.log(token);
 
     res.status(statuscode).json({
         status: "success",
@@ -87,7 +87,7 @@ exports.login = async(req, res, next) => {
     //here the provided password is in not encrpted but password stored in the database is encrypted so if the user exists with the provided email then password of that user is extracted then later on the password-provided----candidatePassword----and user.password that is extracted from the database is compared by the help of the function called-----correctPassword--------that is present in the------userModel.js----as we are making this function as instance method that will be available to all the document/collection
     // const user = await User.findOne({ email }).select("+password");
     const user = await User.findOne({ email });
-    console.log(user.password);
+    // console.log(user.password);
 
     //here correctPassword method is a instance method that is a method which is available to all the instance of the document collection
     //For the instance method it is more related to the document (model) so we put the method in userModel

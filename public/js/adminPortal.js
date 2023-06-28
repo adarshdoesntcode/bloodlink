@@ -43,7 +43,7 @@ const withdrawlContainer = document.querySelector(".withdrawl-container");
 const loadStatement = async()=>{
   const res = await axios({
     method:"GET",
-    url:"http://127.0.0.1:3000/admin/campaignsTransactions"
+    url:"/admin/campaignsTransactions"
   })
 
   const transactions = res.data.data.transactions;
@@ -90,7 +90,7 @@ const loadDonorCount = async()=>{
 
   const res = await axios({
     method:"GET",
-    url:"http://127.0.0.1:3000/admin/adminPortal/activeDonarCount",
+    url:"/admin/adminPortal/activeDonarCount",
   })
 
   console.log("donor",res);
@@ -117,7 +117,7 @@ const loadDonorCount = async()=>{
 const loadallStats = async ()=>{
   const res = await axios({
     method:"GET",
-    url:"http://127.0.0.1:3000/admin/adminPortal/getAllStats",
+    url:"/admin/adminPortal/getAllStats",
 
   })
   console.log(res);
@@ -156,7 +156,7 @@ const loadUnverifiedUserList = async () => {
 
   const res = await axios({
     method: "GET",
-    url: "http://127.0.0.1:3000/admin/unverifiedUsers",
+    url: "/admin/unverifiedUsers",
   });
 
   console.log(res);
@@ -205,7 +205,7 @@ console.log(campaignHTML);
 
   const res = await axios({
     method: "GET",
-    url: "http://127.0.0.1:3000/admin/unverifiedCampaigns",
+    url: "/admin/unverifiedCampaigns",
   });
 
   console.log("campaigns", res);
@@ -328,7 +328,7 @@ const addUserListener = () => {
 
         const res = await axios({
           method: "GET",
-          url: `http://127.0.0.1:3000/admin/adminPortal/user/${id}`,
+          url: `/admin/adminPortal/user/${id}`,
         });
 
       
@@ -364,7 +364,7 @@ const addUserListener = () => {
   <br>
       <div class="confirmation-buttons">
 
-        <a id="approve" href="http://127.0.0.1:3000/admin/adminPortal/userApproves/${
+        <a id="approve" href="/admin/adminPortal/userApproves/${
           data._id
         }" onclick="return confirm('Are you sure?')">Approve</a>
       </div>
@@ -389,7 +389,7 @@ const addCampaignListener = () => {
         fundingcampaignInfo.innerHTML = "Loading....";
         const res = await axios({
           method: "GET",
-          url: `http://127.0.0.1:3000/admin/adminPortal/campaign/${id}`,
+          url: `/admin/adminPortal/campaign/${id}`,
         });
 
         let data = res.data.data.campaign;
@@ -422,10 +422,10 @@ const addCampaignListener = () => {
   <strong>Description :</strong> ${data.description} <br>
   <br>
   <div class="confirmation-buttons">
-  <a id="decline" href="http://127.0.0.1:3000/admin/adminPortal/campaignEnds/${
+  <a id="decline" href="/admin/adminPortal/campaignEnds/${
     data._id
   }" onclick="return confirm('Are you sure?')">Decline</a>
-  <a id="approve" href="http://127.0.0.1:3000/admin/adminPortal/campaignApproves/${
+  <a id="approve" href="/admin/adminPortal/campaignApproves/${
     data._id
   }" onclick="return confirm('Are you sure?')">Approve</a>
 </div>

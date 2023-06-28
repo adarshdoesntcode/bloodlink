@@ -24,8 +24,8 @@ const createSendToken = (admin, statuscode, res) => {
     };
 
     res.cookie("jwtToken", token, cookieOptions);
-    console.log(token);
-    console.log(admin);
+    // console.log(token);
+    // console.log(admin);
 
     res.status(statuscode).json({
         status: "success",
@@ -102,7 +102,7 @@ exports.protect = async(req, res, next) => {
     // read the token and check if it exists
     let token;
     let cookie;
-    console.log(token);
+    // console.log(token);
     // console.log('--------req.headers------');
     // console.log(req.headers);
 
@@ -141,8 +141,8 @@ exports.protect = async(req, res, next) => {
         });
     }
 
-    console.log(decoded);
-    console.log("expected error section end");
+    // console.log(decoded);
+    // console.log("expected error section end");
 
     //check whether the user exists
     const freshAdmin = await Admin.findById(decoded.id);
@@ -185,7 +185,7 @@ exports.unverifiedCampaigns = async(req, res, next) => {
             campaignStatus: "UNVERIFIED",
         });
 
-        console.log(campaign);
+        // console.log(campaign);
         return res.status(200).json({
             status: "success",
             results: campaign.length,
@@ -209,7 +209,7 @@ exports.unverifiedUsers = async(req, res, next) => {
             status: "UNVERIFIED",
         });
 
-        console.log(users);
+        // console.log(users);
         return res.status(200).json({
             status: "success",
             results: users.length,
