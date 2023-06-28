@@ -9,6 +9,7 @@ const app = require("./app");
 dotenv.config();
 
 // console.log("Server.js");
+
 const DB = process.env.DB;
 // console.log(DB);
 
