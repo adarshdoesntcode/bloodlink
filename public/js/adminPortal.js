@@ -93,16 +93,17 @@ const loadDonorCount = async()=>{
     url:"/admin/adminPortal/activeDonarCount",
   })
 
-  console.log("donor",res);
    const donor = res.data.data;
-    ap.textContent = donor.ap;
-    bp.textContent = donor.bp;
-    abp.textContent = donor.abp;
-    op.textContent  = donor.op;
-    an.textContent = donor.an;
-    bn.textContent = donor.bn;
-    abn.textContent = donor.abn;
-    on.textContent = donor.on;
+
+   loadBarChart(donor);
+    // ap.textContent = donor.ap;
+    // bp.textContent = donor.bp;
+    // abp.textContent = donor.abp;
+    // op.textContent  = donor.op;
+    // an.textContent = donor.an;
+    // bn.textContent = donor.bn;
+    // abn.textContent = donor.abn;
+    // on.textContent = donor.on;
 
 
   //  const revenueS =  res.data.data.revenueStatics;
@@ -122,12 +123,29 @@ const loadallStats = async ()=>{
   })
   console.log(res);
    const stat =  res.data.data;
+   loadDonutChart(stat);
    toRa.textContent = (stat.totalUserCount);
    na.textContent = (stat.totalCampaingCount);
    ind.textContent = (stat.totalRequestCount);
    re20.textContent = (stat.totalSuccessfulRequest);
   //  withdraw.textContent = 'Rs ' + (stat.withdrawnAmount.toLocaleString("hi-IN"));
 
+}
+
+const loadDonutChart = (data)=>{
+  const ctx = document.getElementById('requestchart');
+
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Unsuccessful','Successful'],
+      datasets: [{
+        label: 'no of requests',
+        data: [ data.totalRequestCount-data.totalSuccessfulRequest,data.totalSuccessfulRequest,],
+        backgroundColor: ["#F7A4A4","#B6E2A1"]
+      }]
+    }
+  });
 }
 
 const loadToday = async()=>{
@@ -552,6 +570,47 @@ const addEndedListener = () => {
     });
   });
 };
+
+const loadBarChart = (data)=> {
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'AB-', 'O-'],
+      datasets: [{
+        label: 'no of donors',
+        data: [data.ap, data.bp, data.abp, data.op, data.an, data.bn,data.abn,data.on],
+        backgroundColor: ["#F7A4A4", "#FEBE8C", "#FFEBB4", "#B6E2A1"], 
+        borderWidth: 1
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+            display: false
+        },
+    },
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: {
+            display: false
+         },
+         
+        },
+        x:{
+          grid:{
+            display:false
+          }
+        }
+      }
+    }
+  });
+}
+
+
+
 
 loadDonorCount();
 loadallStats();

@@ -7,7 +7,7 @@
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
     <link rel="stylesheet" href="/css/admin-portal.css" />
     <title>Bloodlink Admin.</title>
   </head>
@@ -18,9 +18,9 @@
           <img width="100"    src="/img/favicon.svg" alt="" srcset="">
         </div>
         <ul>
-          <li><a href="#dashboard" id="targeted">dashboard</a></li>
-          <li><a href="#posts">unverified users</a></li>
-          <li><a href="#media">unverified campaigns</a></li>
+          <li><a href="#dashboard" id="targeted">dashboard</a><i class="fa-solid fa-chevron-right"></i></li>
+          <li><a href="#posts">unverified users</a><i class="fa-solid fa-chevron-right"></i></li>
+          <li><a href="#media">unverified campaigns</a><i class="fa-solid fa-chevron-right"></i></li>
           {{!-- <li><a href="#pages">complete</a></li>
           <li><a href="#links">ended</a></li> --}}
 
@@ -38,15 +38,15 @@
             {{!-- <div class="statistics-container"> --}}
               <div class="campaign-statistics">
                 <span class="dashbox-title">Active Donor Count</span>
-                <p class="make-flex-i"><span class="dashbox-heads">A  -  (Positive)</span> <span class="dashbox-data-i total-ap">0</span></p>
+                {{!-- <p class="make-flex-i"><span class="dashbox-heads">A  -  (Positive)</span> <span class="dashbox-data-i total-ap">0</span></p>
                 <p class="make-flex-i"><span class="dashbox-heads">B  -  (Positive)</span> <span class="dashbox-data-i total-bp">0</span></p>
                 <p class="make-flex-i"><span class="dashbox-heads">AB -  (Positive)</span> <span class="dashbox-data-i total-abp">0</span></p>
                 <p class="make-flex-i"><span class="dashbox-heads">O  -  (Positive)</span> <span class="dashbox-data-i total-op">0</span></p>
                 <p class="make-flex-i"><span class="dashbox-heads">A  -  (Negative)</span> <span class="dashbox-data-i total-an">0</span></p>
                 <p class="make-flex-i"><span class="dashbox-heads">B  -  (Negative)</span> <span class="dashbox-data-i total-bn">0</span></p>
                 <p class="make-flex-i"><span class="dashbox-heads">AB -  (Negative)</span> <span class="dashbox-data-i total-abn">0</span></p>
-                <p class="make-flex-i"><span class="dashbox-heads">O  -  (Negative)</span> <span class="dashbox-data-i total-on">0</span></p>
-
+                <p class="make-flex-i"><span class="dashbox-heads">O  -  (Negative)</span> <span class="dashbox-data-i total-on">0</span></p> --}}
+                 <canvas id="myChart"></canvas>
               </div>
               <div class="revenue-statistics">
                 <span class="dashbox-title">All Statistics</span>
@@ -69,18 +69,13 @@
               </div>
 
               <aside class="statement-container">
-                <span class="dashbox-title">Recent Activities</span>
-                <br>
-                Loading....
+                <span class="dashbox-title">Location Spread</span>
               </aside>
 
               <aside class="withdrawl-container">
-                <span class="dashbox-title">Donations</span>
-                <br>
-                <br>
-                Loading....
-                  {{!-- --------GENERATED DYNAMICALLY----------}}
-                Loading....
+                <span class="dashbox-title">Requests</span>
+                <canvas id="requestchart"></canvas>
+
               </aside>
 
 
@@ -156,6 +151,7 @@
          
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js" integrity="sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="/js/adminPortal.js"></script>

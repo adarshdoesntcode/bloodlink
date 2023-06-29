@@ -1,5 +1,5 @@
 body {
-	background-color: rgb(220,220,220);
+	background-color: rgb(247,247,247);
 	padding: 0;
 	margin: 0;
   box-sizing: border-box;
@@ -21,27 +21,37 @@ body {
 }
 /*slidebar侧边栏*/
 .slidebar {
+	/* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
 	width: 15vw;
 	min-height: 100%;
 	float: left;
 	border-right: 1px solid rgb(235,235,235);
-	background-color: rgb(247,247,247);
+	background-color: rgb(255, 255, 255);
 }
 .slidebar .logo {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 145px;
-	border-bottom: 1px solid rgb(235,235,235);
+	/* border-bottom: 1px solid rgb(235,235,235); */
 }
 .slidebar ul {
 	padding: 0;
 	margin:0;
 }
 .slidebar li {
+	display: flex;
+	justify-content: space-between;
 	list-style-type: none;
+	padding: 10px 0px;
 	margin: 0;
 	position: relative;
+}
+
+li>i{
+	justify-content: center;
+	padding: 15px 10px;
+	padding-right: 20px;
 }
 .slidebar li:before {
 	content: "";
@@ -75,7 +85,7 @@ body {
 	text-decoration: none;
 	font:16px/40px helvetica,verdana,sans-serif;
 	box-sizing:border-box;
-	border-bottom: 1px solid rgb(235,235,235);
+	/* border-bottom: 1px solid rgb(235,235,235); */
 	display: block;
 	box-shadow:inset 0 1px 0 rgb(255,255,255);
 	text-indent: 20px;
@@ -95,7 +105,8 @@ body {
 	font-family: helvetica,verdana,sans-serif;
 }
 .main .topbar {
-	border-bottom: 1px solid rgb(235,235,235);
+	background-color: rgb(247,247,247);
+	/* border-bottom: 1px solid rgb(235,235,235); */
 	margin: 0;
 	/* padding: 10px 30px; */
 }
@@ -188,9 +199,13 @@ body {
 .mainContent div:nth-child(9) h2:before {content: "\69";}
 .mainContent div:nth-child(10) h2:before {content: "\6a";}
 .mainContent div:nth-child(11) h2:before {content: "\75";} */
- 
-#dashboard>div {
-	border: 1px solid rgb(235,235,235);
+#dashboard{
+	background-color: rgb(251, 251, 251);
+} 
+
+.campaign-statistics,.revenue-statistics,.todays-statistics {
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	/* border: 1px solid rgb(235,235,235); */
 	padding: 20px;
 	margin-left: 30px;
 	float: left;
@@ -198,9 +213,13 @@ body {
 	min-width: 375px;
 	height: 240px;
 	margin-bottom: 30px;
-	background-color: rgb(247,247,247);
+	background-color: rgb(255, 255, 255);
 	/* display: inline-block; */
 }
+
+/* .campaign-statistics{
+	padding-bottom: 0px;
+} */
 /* .monitor ul {
 	float: left;
 	padding: 0;
@@ -484,14 +503,21 @@ body {
 	background-color: #39c047aa;
 }
 
+#myChart{
+	padding-top: 10px;
 
+}
+#requestchart{
+	padding-left: 10px;
+	max-height: 430px;
+}
 .dashbox-title{
 	color: grey;
-	font-size: 18px;
-	font-weight: bolder;
+	font-size: 14px;
+	/* font-weight: bolder; */
 	display: block;
-	padding-bottom: 15px;
-	border-bottom: 2px solid #c03939;
+	padding-bottom: 5px;
+	/* border-bottom: 2px solid #c03939; */
 }
 
 .make-flex{
@@ -518,22 +544,25 @@ body {
 }
 
 .statement-container{
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 	display: inline-block;
 	border-radius: 5px;
 	overflow: auto;
-	background-color: rgb(247,247,247);
-	height: 45vh;
+	background-color: rgb(255, 255, 255);
+	height: 48vh;
 	padding: 20px;
 	margin-left: 30px;
 	width: 50%;
 }
 .withdrawl-container{
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 	display: inline-block;
 	border-radius: 5px;
 	overflow: auto;
-	background-color: rgb(247,247,247);
-	height: 45vh;
+	background-color: rgb(255, 255, 255);
+	height: 49vh;
 	padding: 20px;
+	/* padding-left: 40px; */
 	margin-left: 30px;
 	width: 34%;
 }
