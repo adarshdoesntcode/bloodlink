@@ -1,5 +1,4 @@
 
-
 const unverfiedcampaignContainer = document.querySelector(".campaign-list-unverified");
 const unverfiedcampaignInfo = document.querySelector(".unverified-campaign-info");
 
@@ -41,28 +40,38 @@ const statementContainer = document.querySelector(".statement-container");
 const withdrawlContainer = document.querySelector(".withdrawl-container");
 
 const loadStatement = async()=>{
-  const res = await axios({
-    method:"GET",
-    url:"/admin/campaignsTransactions"
-  })
+  // const res = await axios({
+  //   method:"GET",
+  //   url:"/admin/campaignsTransactions"
+  // })
 
-  const transactions = res.data.data.transactions;
+  // const transactions = res.data.data.transactions;
 
-  let HTML = [];
+  // let HTML = [];
 
-  HTML = transactions.map((transac)=>{
-    let date = new Date(transac.createdAt)
-    return `
-    <p class="statem"><span class="title">${transac.titleOfCampaign}</span> <span class="date">${date.toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    })}</span><span class="amount">Rs ${transac.amount}</span></p>
+  // HTML = transactions.map((transac)=>{
+  //   let date = new Date(transac.createdAt)
+  //   return `
+  //   <p class="statem"><span class="title">${transac.titleOfCampaign}</span> <span class="date">${date.toLocaleDateString(undefined, {
+  //     year: "numeric",
+  //     month: "long",
+  //     day: "numeric",
+  //   })}</span><span class="amount">Rs ${transac.amount}</span></p>
     
-    `
-  }).join("");
+  //   `
+  // }).join("");
 
-  statementContainer.innerHTML = `<span class="dashbox-title">Recent Transactions</span>` + HTML
+  // statementContainer.innerHTML = `<span class="dashbox-title">Recent Transactions</span>` + HTML
+
+  // const mapContainer = document.getElementById('map-container');
+
+  mapboxgl.accessToken = token;
+  const map = new mapboxgl.Map({
+    container: 'map-container', // container ID
+    style: 'mapbox://styles/mapbox/streets-v12', // style URL
+    center: [-74.5, 40], // starting position [lng, lat]
+    zoom: 9 // starting zoom
+})
 
 }
 
@@ -615,7 +624,7 @@ const loadBarChart = (data)=> {
 loadDonorCount();
 loadallStats();
 // loadToday();
-// loadStatement();
+loadStatement();
 // loadWithdrawn();
 loadUnverifiedUserList();
 loadUnverifiedCampaignList();

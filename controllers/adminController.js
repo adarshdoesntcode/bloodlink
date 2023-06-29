@@ -164,6 +164,7 @@ exports.protect = async(req, res, next) => {
 exports.adminPortal = (req, res) => {
     res.render("adminPortal", {
         admin: req.admin.name,
+        maptoken: process.env.MAPBOX_API
     });
 };
 
