@@ -65,13 +65,14 @@ const loadStatement = async()=>{
 
   // const mapContainer = document.getElementById('map-container');
 
-  mapboxgl.accessToken = token;
+  mapboxgl.accessToken = "pk.eyJ1IjoiZG90YmFzaWMiLCJhIjoiY2xqZ3B5NW8wMDM4bTNxbXpxdHQwZHhldCJ9.k6_x63sVhdrU_ZoFMJzalQ";
   const map = new mapboxgl.Map({
     container: 'map-container', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [-74.5, 40], // starting position [lng, lat]
-    zoom: 9 // starting zoom
+    center: [85.319612,27.708910], // starting position [lng, lat]
+    zoom: 11 // starting zoom
 })
+map.addControl(new mapboxgl.FullscreenControl());
 
 }
 
