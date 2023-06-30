@@ -19,8 +19,18 @@ const requestSchema = new mongoose.Schema({
         validate: [validator.isEmail, 'Please provide a valid email!!!'],
     },
     location: {
-        type: String,
-        required: [true, "Please enter your location!"],
+        location: {
+            type: String,
+            // required: true
+        },
+        longitude: {
+            type: String,
+            // required: true
+        },
+        latitude: {
+            type: String,
+            // required: true
+        },
     },
     bloodRequiredDate: {
         type: Date,

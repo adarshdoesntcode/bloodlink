@@ -461,3 +461,9 @@ exports.getAllStatistics = async(req, res) => {
         });
     }
 }
+
+exports.getAllUsers = (req, res) => {
+    res.status(200).json({
+        data: "Profile has data"
+    });
+}

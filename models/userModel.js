@@ -25,9 +25,20 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please enter your blood group!"],
     },
+    
     address: {
         type: String,
+            // required: true
+        },
+    longitude: {
+        type: String,
+            // required: true
     },
+    latitude: {
+        type: String,
+            // required: true
+    },
+    
     //need to add verificationRecord report , photo of citizenship card or license or passport
 
     email: {

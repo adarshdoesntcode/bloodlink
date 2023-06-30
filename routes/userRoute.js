@@ -12,5 +12,6 @@ router.route("/login").post(authController.login);
 // router.route("/logout").get(authController.logout);'
 router.route("/profile").get(authController.protect, userController.getProfile);
 
+
 //exporting router
 module.exports = router;

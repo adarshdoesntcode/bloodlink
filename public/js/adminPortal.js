@@ -39,6 +39,8 @@ const tdWithdraw = document.querySelector(".td-withdraw");
 const statementContainer = document.querySelector(".statement-container");
 const withdrawlContainer = document.querySelector(".withdrawl-container");
 
+
+
 const loadStatement = async()=>{
   // const res = await axios({
   //   method:"GET",
@@ -65,14 +67,6 @@ const loadStatement = async()=>{
 
   // const mapContainer = document.getElementById('map-container');
 
-  mapboxgl.accessToken = "pk.eyJ1IjoiZG90YmFzaWMiLCJhIjoiY2xqZ3B5NW8wMDM4bTNxbXpxdHQwZHhldCJ9.k6_x63sVhdrU_ZoFMJzalQ";
-  const map = new mapboxgl.Map({
-    container: 'map-container', // container ID
-    style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [85.319612,27.708910], // starting position [lng, lat]
-    zoom: 11 // starting zoom
-})
-map.addControl(new mapboxgl.FullscreenControl());
 
 }
 
@@ -131,7 +125,6 @@ const loadallStats = async ()=>{
     url:"/admin/adminPortal/getAllStats",
 
   })
-  console.log(res);
    const stat =  res.data.data;
    loadDonutChart(stat);
    toRa.textContent = (stat.totalUserCount);
@@ -187,7 +180,6 @@ const loadUnverifiedUserList = async () => {
     url: "/admin/unverifiedUsers",
   });
 
-  console.log(res);
   if (res.data.status === "success" && res.data.results > 0) {
     userHTML = res.data.data.users
       .map((user) => {
@@ -229,14 +221,12 @@ const loadUnverifiedCampaignList = async () => {
   
 </article>`);
 
-console.log(campaignHTML);
 
   const res = await axios({
     method: "GET",
     url: "/admin/unverifiedCampaigns",
   });
 
-  console.log("campaigns", res);
 
   if (res.data.status === "success" && res.data.results > 0) {
     campaignHTML = res.data.data.campaign
@@ -625,7 +615,7 @@ const loadBarChart = (data)=> {
 loadDonorCount();
 loadallStats();
 // loadToday();
-loadStatement();
+// loadStatement();
 // loadWithdrawn();
 loadUnverifiedUserList();
 loadUnverifiedCampaignList();

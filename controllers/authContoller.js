@@ -36,6 +36,8 @@ const createSendToken = (user, statuscode, res) => {
 //User signup
 exports.signup = async(req, res) => {
     try {
+
+        //  console.log(req.body);
         //creating documents using the model
         const newUser = await User.create({
             name: req.body.name,
@@ -44,6 +46,8 @@ exports.signup = async(req, res) => {
             email: req.body.email,
             password: req.body.password,
             address: req.body.address,
+            longitude: req.body.longitude,
+            latitude:req.body.latitude
         });
 
         //sending the response only

@@ -24,8 +24,18 @@ const campaignSchema = new mongoose.Schema({
         required: [true, "A campaign must have end date"],
     },
     campaignAddress: {
-        type: String,
-        required: [true, "A campaign must have a valid address"],
+        location: {
+            type: String,
+            // required: true
+        },
+        longitude: {
+            type: String,
+            // required: true
+        },
+        latitude: {
+            type: String,
+            // required: true
+        },
     },
     goalPint: {
         type: Number,

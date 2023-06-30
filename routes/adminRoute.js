@@ -9,6 +9,8 @@ router.route("/signup").post(adminController.signup);
 router.route("/login").post(adminController.login);
 router.route("/logout").get(adminController.protect, adminController.logout);
 router.route("/adminPortal").get(adminController.protect, adminController.adminPortal);
+router.route("/getusers").get(adminController.protect, adminController.getAllUsers);
+
 
 //route for campaign information
 
