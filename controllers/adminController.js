@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
 
-
 //IMPORT MODELS
 const Admin = require("../models/adminModel");
 const Campaign = require("../models/campaignModel");
@@ -24,8 +23,6 @@ const createSendToken = (admin, statuscode, res) => {
     };
 
     res.cookie("jwtToken", token, cookieOptions);
-    // console.log(token);
-    // console.log(admin);
 
     res.status(statuscode).json({
         status: "success",
@@ -35,6 +32,7 @@ const createSendToken = (admin, statuscode, res) => {
         },
     });
 };
+
 
 exports.home = async(req, res) => {
     res.render('adminLogin');
@@ -96,7 +94,6 @@ exports.login = async(req, res, next) => {
     createSendToken(admin, 200, res);
 };
 
-
 //---------------------------admin protect---------------------------
 exports.protect = async(req, res, next) => {
     // read the token and check if it exists
@@ -105,7 +102,6 @@ exports.protect = async(req, res, next) => {
     // console.log(token);
     // console.log('--------req.headers------');
     // console.log(req.headers);
-
     // console.log('--------req.headers.cookie------');
     // console.log(req.headers.cookie);
     if (req.headers.cookie) {
@@ -127,8 +123,8 @@ exports.protect = async(req, res, next) => {
     // console.log("------------------");
     // console.log("working");
     // console.log("------------------");
-    // //verifying the token
-    // //here the callback function is converted to the promise using the promisifying method that we have the util section as it is more easy to handle the promise rather than callback function which may lead to the callback hell condition so
+    //verifying the token
+    //here the callback function is converted to the promise using the promisifying method that we have the util section as it is more easy to handle the promise rather than callback function which may lead to the callback hell condition so
     // console.log('expected error section');
     let decoded;
     try {
@@ -161,12 +157,14 @@ exports.protect = async(req, res, next) => {
     next();
 };
 
+
 exports.adminPortal = (req, res) => {
     res.render("adminPortal", {
         admin: req.admin.name,
         maptoken: process.env.MAPBOX_API
     });
 };
+
 
 exports.logout = (req, res) => {
     res.cookie("jwtToken", "Loggedout", {
@@ -176,8 +174,6 @@ exports.logout = (req, res) => {
 
     res.status(200).redirect("/admin");
 };
-
-
 
 //---------------------list of unverified campaign------------------
 exports.unverifiedCampaigns = async(req, res, next) => {
@@ -202,7 +198,6 @@ exports.unverifiedCampaigns = async(req, res, next) => {
     }
 };
 
-
 //---------------------list of unverified Users------------------
 exports.unverifiedUsers = async(req, res, next) => {
     try {
@@ -226,6 +221,7 @@ exports.unverifiedUsers = async(req, res, next) => {
     }
 };
 
+
 exports.getUserById = async(req, res) => {
     const user = await User.findById(req.params.id);
 
@@ -236,7 +232,6 @@ exports.getUserById = async(req, res) => {
         },
     });
 };
-
 
 //GET ALL CAMPAIGNS
 exports.getAllCampaigns = async(req, res) => {
@@ -262,6 +257,7 @@ exports.getAllCampaigns = async(req, res) => {
     }
 };
 
+
 exports.getCampaignById = async(req, res) => {
     const campaign = await Campaign.findById(req.params.id);
 
@@ -272,9 +268,6 @@ exports.getCampaignById = async(req, res) => {
         },
     });
 };
-
-
-
 
 //-------------approves campaign--------------
 exports.campaignApproves = async(req, res, next) => {
@@ -299,6 +292,7 @@ exports.campaignApproves = async(req, res, next) => {
         return res.status(404);
     }
 };
+
 
 exports.userApproves = async(req, res, next) => {
     const user = await User.findById(req.params.id);
@@ -349,7 +343,6 @@ exports.campaignEnds = async(req, res) => {
         return res.status(404);
     }
 };
-
 
 //get active donar count
 exports.getActiveDonarCount = async(req, res) => {
@@ -461,6 +454,7 @@ exports.getAllStatistics = async(req, res) => {
         });
     }
 }
+
 
 exports.getAllUsers = (req, res) => {
     res.status(200).json({

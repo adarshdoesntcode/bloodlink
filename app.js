@@ -1,10 +1,15 @@
 const express = require("express");
+const http = require('http');
+const socketIo = require('socket.io');
+
 const path = require("path");
 const bodyParser = require('body-parser');
 const cors = require("cors");
 const hbs = require("hbs");
 const app = express();
 
+const server = http.createServer(app);
+const io = socketIo(server);
 
 //import Models
 const adminRoute = require("./routes/adminRoute");
@@ -41,15 +46,30 @@ app.use(express.static(publicDirectoryPath));
 app.set("view engine", "hbs");
 app.set("views", viewsDirectoryPath);
 
-app.listen(port, () => {
+
+io.on('connection', (socket) => {
+    console.log('App connected');
+  
+    // Listen for incoming location data
+    socket.on('location', (data) => {
+      console.log('Received location:', data);
+      
+    });
+  
+    socket.on('disconnect', () => {
+      console.log('App disconnected');
+    });
+  });
+
+server.listen(port, () => {
     console.log(`🚀:Server started on port ${port}`);
 });
 
 //Routes
-app.get('/',(req,res)=>{
-    console.log("working");
-    res.render('landingpage')
-})
+// app.get('/',(req,res)=>{
+//     console.log("working");
+//     res.render('landingpage')
+// })
 app.use("/admin", adminRoute);
 app.use("/user", userRoute);
 app.use("/campaign", campaignRoute);
